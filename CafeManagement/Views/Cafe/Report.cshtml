@@ -1,0 +1,217 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Dashboard & Reports - Cafe Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .progress-bar {
+            background: linear-gradient(to right, #374151 0%, #374151 var(--progress), #e5e7eb var(--progress), #e5e7eb 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white border-b border-gray-200 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button class="flex items-center gap-2 text-gray-600 hover:text-gray-800" onclick="location.href='@Url.Action("Index", "Cafe")'">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Back to Dashboard</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 text-green-600"></i>
+                    <h1 class="text-xl font-semibold text-gray-900">Sales Dashboard & Reports</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option>Today</option>
+                    <option>Yesterday</option>
+                    <option>This Week</option>
+                    <option>This Month</option>
+                </select>
+                <button class="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Export</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-600">Total Revenue</h3>
+                    <i data-lucide="dollar-sign" class="w-4 h-4 text-gray-400"></i>
+                </div>
+                <div class="text-2xl font-bold text-gray-900 mb-1">$1247.50</div>
+                <div class="text-sm text-green-600">+12.5% from last period</div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-600">Total Orders</h3>
+                    <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                </div>
+                <div class="text-2xl font-bold text-gray-900 mb-1">89</div>
+                <div class="text-sm text-gray-500">orders today</div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-600">Average Order</h3>
+                    <i data-lucide="trending-up" class="w-4 h-4 text-gray-400"></i>
+                </div>
+                <div class="text-2xl font-bold text-gray-900 mb-1">$14.02</div>
+                <div class="text-sm text-gray-500">per transaction</div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-600">Growth Rate</h3>
+                    <i data-lucide="trending-up" class="w-4 h-4 text-gray-400"></i>
+                </div>
+                <div class="text-2xl font-bold text-gray-900 mb-1">12.5%</div>
+                <div class="text-sm text-gray-500">vs last period</div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <nav class="flex space-x-8">
+                <button class="pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">Overview</button>
+                <button class="pb-2 text-gray-500 hover:text-gray-700">Product Performance</button>
+                <button class="pb-2 text-gray-500 hover:text-gray-700">Staff Performance</button>
+                <button class="pb-2 text-gray-500 hover:text-gray-700">Hourly Breakdown</button>
+            </nav>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Revenue Trend</h3>
+                <div class="flex items-center justify-center h-64 text-gray-400">
+                    <div class="text-center">
+                        <i data-lucide="trending-up" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
+                        <p class="text-gray-500 mb-2">Revenue chart would display here</p>
+                        <p class="text-sm text-gray-400">Showing upward trend of 12.5%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6">Sales by Category</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">Coffee</span>
+                        <span class="text-sm font-medium text-gray-900">65%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gray-800 h-2 rounded-full" style="width: 65%"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">Pastries</span>
+                        <span class="text-sm font-medium text-gray-900">20%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gray-800 h-2 rounded-full" style="width: 20%"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">Tea</span>
+                        <span class="text-sm font-medium text-gray-900">10%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gray-800 h-2 rounded-full" style="width: 10%"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">Other</span>
+                        <span class="text-sm font-medium text-gray-900">5%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gray-800 h-2 rounded-full" style="width: 5%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-900">Recent Transactions</h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Items</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Staff</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2:45 PM</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#222</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cappuccino, Croissant</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Mike Chen</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$8.00</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Card</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2:30 PM</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#221</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Espresso, Green Tea</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sarah Johnson</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$6.45</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Cash</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2:15 PM</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#220</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cappuccino x2</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Emma Davis</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$9.50</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Card</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script>
+        lucide.createIcons();
+
+        document.querySelectorAll('nav button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('nav button').forEach(btn => {
+                    btn.classList.remove('border-blue-600', 'text-blue-600');
+                    btn.classList.add('text-gray-500');
+                });
+
+                this.classList.remove('text-gray-500');
+                this.classList.add('border-blue-600', 'text-blue-600');
+            });
+        });
+    </script>
+</body>
+</html>
